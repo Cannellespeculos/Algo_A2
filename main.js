@@ -578,3 +578,66 @@ function notTwo(tabl) {
 }
 
 console.log(notTwo(["foobar", "test", "john", "doe", "jiji", "jiji"]))
+
+
+function tri(tabl) {
+  let tmp = 0;
+  for (let i = 0; i < tabl.length; i++) {
+    let element = tabl[i];
+
+    for (let j = i; j < tabl.length; j++) {
+      let el = tabl[j];
+
+      if (j != 0) {
+        if (el[0] < element[0]) {
+          tmp = tabl[i];
+          tabl[i] = el;
+          tabl[j] = tmp;
+
+        }else if (el[0] === element[0]) {
+  
+          if (el[1] < element[1]) {
+            tmp = tabl[i];
+            tabl[i] = el;
+            tabl[j] = tmp;
+          }
+        }
+        
+      }
+      
+    }
+    
+  }
+
+  return tabl
+}
+
+console.log(tri([[2,8,4], [5,9,3], [1,11,4], [3,7,1]]))
+
+
+function tri_a_bulle(tabl) {
+  let tri = true;
+  let tmp = 0
+
+  for (let i = 0; i < tabl.length; i++) {
+    const element = tabl[i];
+    
+    for (let j = 0; j < tabl.length; j++) {
+      if (tabl[j+1] < tabl[j]) {
+        tmp = tabl[j+1]
+        tabl[j+1] = tabl[j]
+        tabl[j] = tmp
+        tri = false
+      }
+      
+    }
+
+    if (tri) {
+      break;
+    }
+  }
+
+  return tabl
+}
+
+console.log(tri_a_bulle([1,6,8,3,17,2,4,7,2]))
