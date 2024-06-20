@@ -640,4 +640,21 @@ function tri_a_bulle(tabl) {
   return tabl
 }
 
-console.log(tri_a_bulle([1,6,8,3,17,2,4,7,2]))
+console.log(tri_a_bulle([[2,8,9],[2,3,6],[7,5,4],[6,8,7]]))
+
+
+function cesar(word, difference) {
+  let result = ""
+   for (let i = 0; i < word.length; i++) {
+    const element = word[i];
+
+    let code = element.charCodeAt();
+
+    result += String.fromCharCode(((code - 97 + difference) % 26) + 97)
+    
+   }
+
+   return result
+}
+
+console.log(cesar("coucou", 3))
