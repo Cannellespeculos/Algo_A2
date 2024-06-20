@@ -658,3 +658,96 @@ function cesar(word, difference) {
 }
 
 console.log(cesar("coucou", 3))
+
+
+
+function trip(tabl) {
+  let tmp = 0
+  let sorted = false
+
+  for (let i = 0; i < tabl.length; i++) {
+    sorted = true
+
+    for (let j = 0; j < tabl.length; j++) {
+      if (tabl[j+1] < tabl[j]) {
+        tmp = tabl[j]
+        tabl[j] = tabl[j+1]
+        tabl[j+1] = tmp
+        sorted = false
+      }
+      
+    }
+    if (sorted) {
+      break
+    }
+  }
+
+  return tabl
+  
+}
+
+console.log(trip([4,5,6,8,7,2,4,5,4,5,45,8,5]))
+
+
+function caesar(word, diff) {
+  let result = ""
+  for (let i = 0; i < word.length; i++) {
+    const element = word[i];
+
+    let code = element.charCodeAt()
+
+    result += String.fromCharCode(((code - 97 + diff) % 26) + 97)
+    
+  }
+
+  return result
+}
+
+console.log(caesar("cannelle", 79))
+
+
+function palindrome(sentence) {
+  let withoutSpace = ""
+  let reverse = ""
+  let i = sentence.length -1
+
+  for (let j = 0; j < sentence.length; j++) {
+    const element = sentence[j];
+
+    if (element != " ") {
+      withoutSpace += element
+    }
+    
+  }
+
+  while (i >= 0) {
+    reverse += withoutSpace[i]
+    i--;
+  }
+
+  if (reverse === withoutSpace) {
+    return true
+  }
+
+  return false
+}
+
+console.log(palindrome("coucou"))
+
+
+function tri_par_insertion(tabl) {
+  for (let i = 0; i < tabl.length; i++) {
+    const element = tabl[i];
+    let j = i
+
+    while (j > 0 && tabl[j - 1] > element) {
+      tabl[j] = tabl[j - 1]
+      j--;
+    }
+    tabl[j] = element
+  }
+
+  return tabl
+}
+
+console.log(tri_par_insertion([54,89,75,35,15,12,15]))
